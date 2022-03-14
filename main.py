@@ -1,4 +1,4 @@
-import pyautogui
+import keyboard
 from assets.list_interperet import listmaker
 import os.path
 import sys
@@ -25,3 +25,24 @@ quoteslist = listmaker.validify_quotes(quoteslist)
 for i in range(len(quoteslist)):
 	print(quoteslist[i])
 print(len(quoteslist))
+print("quotes generated \nplease press F6 on your keyboard once in edge, and signed into your Cranbury School google account")
+
+keyboard.wait('f6')
+keyboard.send('ctrl+t')
+keyboard.write("https://docs.google.com/forms/d/e/1FAIpQLSdGxOdKkyleSepQElzmWf3DEpfK2CwcHMz5RZ5a_hO88XaWJw/viewform?usp=sf_link")
+keyboard.send('enter')
+for i in range(len(quoteslist)):
+
+	time.sleep(1.5)
+	for a in range(3): keyboard.send('tab')
+	keyboard.send('down+tab')
+	keyboard.write(quoteslist[i])
+	keyboard.send('tab+enter')
+	time.sleep(2)
+	for b in range(4): keyboard.send('tab')
+	keyboard.send('enter')
+	time.sleep(0.5)
+	keyboard.send('tab')
+	time.sleep(0.5)
+	keyboard.send('enter')
+	time.sleep(0.5)
