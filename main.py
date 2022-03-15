@@ -1,4 +1,5 @@
-import keyboard
+from keyboard import send, wait, write
+from mouse import get_position as update_mouse_pos
 from assets.list_interperet import listmaker
 import os.path
 import sys
@@ -26,23 +27,28 @@ for i in range(len(quoteslist)):
 	print(quoteslist[i])
 print(len(quoteslist))
 print("quotes generated \nplease press F6 on your keyboard once in edge, and signed into your Cranbury School google account")
-
-keyboard.wait('f6')
-keyboard.send('ctrl+t')
-keyboard.write("https://docs.google.com/forms/d/e/1FAIpQLSdGxOdKkyleSepQElzmWf3DEpfK2CwcHMz5RZ5a_hO88XaWJw/viewform?usp=sf_link")
-keyboard.send('enter')
-for i in range(len(quoteslist)):
+mousepos = (100,100)
+wait('f6')
+send('ctrl+t')
+write("https://docs.google.com/forms/d/e/1FAIpQLSdGxOdKkyleSepQElzmWf3DEpfK2CwcHMz5RZ5a_hO88XaWJw/viewform?usp=sf_link")
+send('enter')
+for i in range(1):
 
 	time.sleep(1.5)
-	for a in range(3): keyboard.send('tab')
-	keyboard.send('down+tab')
-	keyboard.write(quoteslist[i])
-	keyboard.send('tab+enter')
+	for a in range(3): send('tab')
+	send('down+tab')
+	write(quoteslist[i])
+	send('tab+enter')
 	time.sleep(2)
-	for b in range(4): keyboard.send('tab')
-	keyboard.send('enter')
+	for b in range(4): send('tab')
+	send('enter')
 	time.sleep(0.5)
-	keyboard.send('tab')
+	send('tab')
 	time.sleep(0.5)
-	keyboard.send('enter')
+	send('enter')
 	time.sleep(0.5)
+	mousepos = update_mouse_pos()
+	if mousepos == (0,0):
+		break
+log.write(f"{time.asctime(time.localtime())}: Execution Completed. Will exit")
+print("Execution completed.")
