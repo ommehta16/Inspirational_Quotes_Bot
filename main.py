@@ -32,7 +32,7 @@ wait('f6')
 send('ctrl+t')
 write("https://docs.google.com/forms/d/e/1FAIpQLSdGxOdKkyleSepQElzmWf3DEpfK2CwcHMz5RZ5a_hO88XaWJw/viewform?usp=sf_link")
 send('enter')
-for i in range(1):
+for i in range(len(quoteslist)):
 
 	time.sleep(1.5)
 	for a in range(3): send('tab')
